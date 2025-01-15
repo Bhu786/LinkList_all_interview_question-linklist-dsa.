@@ -10,12 +10,15 @@ This guide covers the essential concepts, tricks, and patterns required to solve
 
 ### Traversal
 - Use a loop (while or for) to traverse through the nodes.
+
+```cpp
   cpp
+  
   Node* current = head;
   while (current) {
       current = current->next;
   }
-  
+``` 
 
 ### Two Pointers
 - Use two pointers (slow and fast) for problems like:
@@ -33,7 +36,9 @@ This guide covers the essential concepts, tricks, and patterns required to solve
 
 ### Reverse Logic
 - Reverse a linked list by modifying next pointers in a loop.
-  cpp
+-
+  
+```cpp  
   Node* reverseList(Node* head) {
       Node* prev = nullptr;
       Node* current = head;
@@ -47,7 +52,8 @@ This guide covers the essential concepts, tricks, and patterns required to solve
   }
   
 
----
+```
+
 
 ## 2. Tricks and Patterns
 
@@ -56,6 +62,7 @@ This guide covers the essential concepts, tricks, and patterns required to solve
 - *Logic:* Move slow one step at a time and fast two steps.
 
 *Example: Find the middle of a list*
+```cpp
 cpp
 Node* findMiddle(Node* head) {
     Node* slow = head, *fast = head;
@@ -68,12 +75,14 @@ Node* findMiddle(Node* head) {
 
 
 ---
+```
 
 ### *Trick 2: Reverse a Linked List*
 - *When to Use:* Problems requiring reversing parts or the whole list.
 - *Logic:* Use 3 pointers: prev, current, and next. Update next pointers in a loop.
 
 *Example: Reverse a linked list*
+```cpp
 cpp
 Node* reverseList(Node* head) {
     Node* prev = nullptr;
@@ -89,12 +98,14 @@ Node* reverseList(Node* head) {
 
 
 ---
+```
 
 ### *Trick 3: Dummy Node*
 - *When to Use:* For problems modifying the list, like deleting nodes or merging lists.
 - *Logic:* Introduce a dummy node to simplify edge cases.
 
 *Example: Remove the N-th node from the end*
+```cpp
 cpp
 Node* removeNthFromEnd(Node* head, int n) {
     Node* dummy = new Node();
@@ -111,7 +122,8 @@ Node* removeNthFromEnd(Node* head, int n) {
 }
 
 
----
+
+```
 
 ### *Trick 4: Hashing for Random/Unordered Nodes*
 - *When to Use:* For problems like cloning lists with random pointers.
@@ -231,7 +243,7 @@ Logic: Use 3 pointers: prev, current, and next. Update next pointers in the loop
 Example: Reverse a linked list.
 
 
-```
+```cpp
 Node* reverseList(Node* head) {
     Node* prev = nullptr;
     Node* current = head;
@@ -250,7 +262,7 @@ When to Use: For problems that modify the list, like deleting nodes or merging l
 Logic: Introduce a dummy node to simplify edge cases.
 Example: Remove the N-th node from the end.
 
-```
+```cpp
 Node* removeNthFromEnd(Node* head, int n) {
     Node* dummy = new Node();
     dummy->next = head;
@@ -273,7 +285,7 @@ Logic: Use a hash map to store mappings between original and new nodes.
 Example: Clone a linked list with random pointers.
 
 
-```
+```cpp
 #include <unordered_map>
 Node* cloneList(Node* head) {
     unordered_map<Node*, Node*> map;
@@ -333,7 +345,7 @@ prev points to the previous node you’ve already processed
 When you’re working on a node and need to modify next, always save the original next pointer first.
 
 Example (Reversing):
-```
+```cpp
 Node* next = current->next;  // Save the next node
 current->next = prev;        // Reverse the link
 ```
